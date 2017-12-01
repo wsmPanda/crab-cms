@@ -1,4 +1,4 @@
-import '@/style/login.scss'
+import '@/style/login.less'
 import md5 from './md5'
 import _ from 'util'
 
@@ -19,7 +19,6 @@ import _ from 'util'
   }))
 
   $('.form-login')[0].addEventListener('submit', (e) => {
-
     e.preventDefault()
     var name = $('input[class=name]')[0].value
     var password = $('input[class=password]')[0].value

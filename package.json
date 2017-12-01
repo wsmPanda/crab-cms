@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "handlebars": "^4.0.11",
+    "iview": "^2.7.4",
     "koa": "^2.4.1",
     "koa-body": "^2.5.0",
     "koa-logger": "^3.1.0",
@@ -20,6 +21,8 @@
     "koa-static": "^4.0.2",
     "koa-views": "^6.1.2",
     "koa2": "^2.0.0-alpha.7",
+    "less": "^2.7.3",
+    "less-loader": "^4.0.5",
     "mysql2": "^1.5.1",
     "node-sass": "^4.7.2",
     "nodemon": "^1.12.1",
@@ -89,7 +92,6 @@
     "vue-loader": "^13.3.0",
     "vue-style-loader": "^3.0.1",
     "vue-template-compiler": "^2.5.8",
-    "webpack": "^3.6.0",
     "webpack-bundle-analyzer": "^2.9.0",
     "webpack-dev-server": "^2.9.1",
     "webpack-merge": "^4.1.0"

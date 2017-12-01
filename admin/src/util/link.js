@@ -88,7 +88,7 @@ export function download(url, data, setting) {
   setting = setting || {}
   data = data || {}
   url = $.composePath(url, setting.param)
-  var req = linkProcess(url, data, setting, req)
+  var req = linkProcess(url, data, setting)
   req.body = JSON.stringify(data)
   setting.data = data
   if (setting.query) {
@@ -210,7 +210,7 @@ export function link(url, data, setting) {
   setting = setting || {}
   data = data || {}
   url = $.composePath(url, setting.param)
-  var req = linkProcess(url, data, setting, req)
+  var req = linkProcess(url, data, setting)
   req.body = JSON.stringify(data)
   setting.data = data
   if (setting.query) {

@@ -11,7 +11,7 @@
  * 
  */
 
-// 二叉堆对象
+// 二叉堆对象 
 class DataHeap {
   constructor (compare) {
     this.data = []
