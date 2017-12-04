@@ -6,6 +6,8 @@ import router from './router'
 import './style/login.less'
 import iView from 'iview'
 import './style/main.less'
+import "static/icon/iconfont";
+
 
 Vue.use(iView)
 Vue.config.productionTip = false

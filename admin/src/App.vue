@@ -1,19 +1,19 @@
 <template>
     <div class="layout">
-      <header class="layout-header">header</header>
+      <NodeMenu class="layout-menu"></NodeMenu>
       <div class="layout-body">
-        <Workspace class="layout-menu"></Workspace>
+         <header class="layout-header"></header>
         <router-view class="layout-view"/>
       </div>
     </div>
 </template>
 
 <script>
-import Workspace from "@/components/workspace";
+import NodeMenu from "@/components/nodeMenu";
 export default {
   name: "app",
   components: {
-    Workspace
+    NodeMenu
   }
 };
 </script>
@@ -26,24 +26,31 @@ body {
 .layout {
   display: flex;
   height: 100%;
-  flex-direction: column;
+  overflow: hidden;
+  flex-direction: row;
   .layout-header {
-    height: 40px;
+    height: 48px;
     width: 100%;
     background: #fff;
-    border-bottom: 1px solid #eee;
+    border-bottom: 2px solid #dddee1;
   }
   .layout-body {
+    flex-direction: column;
     display: flex;
     flex: 1;
     .layout-view {
-      background: #f5f7f9;
-      flex: 1;
-    }
-    .layout-menu {
       background: #fff;
-      border-right: 1px solid #eee;
+      position: relative;
+      flex: 1;
+      padding: 8px 16px;
+      overflow: auto;
+      margin-bottom: 46px;
     }
+  }
+  .layout-menu {
+    background: #fff;
+    display: flex;
+    flex-direction: column;
   }
 }
 </style>

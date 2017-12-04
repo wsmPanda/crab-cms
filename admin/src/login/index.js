@@ -1,7 +1,7 @@
 import '@/style/login.less'
 import md5 from './md5'
 import _ from 'util'
-
+ 
 ;(function () {
   var $ = (...arg) => document.querySelectorAll(...arg)
   if (!$('.form-login').length) {
@@ -37,7 +37,7 @@ import _ from 'util'
       var user = _.local('user') || {}
       user[app] = res.data
       _.local('user', user)
-      window.location.href = '/?_=' + Date.parse(new Date())
+      window.location.href = '/admin?_=' + Date.parse(new Date())
     })
   })
   function loginError (text) {

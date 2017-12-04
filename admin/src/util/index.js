@@ -4,9 +4,11 @@ import {
   link,
   upload,
   download,
-  submitForm
-} from './link'
-export * from './link'
+  submitForm,
+  fetchModel,
+  linkPath
+} from './link/index'
+export * from './link/index'
 //用于遍历相同结构的嵌套元素，并对其进行处理
 //将方法分离分两段，使遍历子节点时无需进行根节点的判断逻辑
 export function eachChild({
@@ -430,6 +432,8 @@ window.App = metaContent('APP_CODE') || 'cs'
 
 export default {
   submitForm,
+  fetchModel,
+  linkPath,
   download,
   getFontWidth,
   localPageSize,

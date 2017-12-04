@@ -1,10 +1,10 @@
  {{#>layout}}
 <h3>ARTICLE LIST</h3>
-<ul>
-{{#each data}}
-<li>
-    <a href="/article/{{id}}">[blog] {{title}}</a>
-</li>
-{{/each}} 
+<ul class="list-article">
+    {{#each data}}
+    <li>
+        <a href="/article/{{id}}">[blog] {{title}}</a>
+    </li>
+    {{/each}}
 </ul>
 {{/layout}}

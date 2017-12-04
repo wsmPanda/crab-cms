@@ -1,6 +1,4 @@
-var Article = []
-/*
-Article.init({
+var Article = {
   code: 'article',
   name: '文章',
   fields: {
@@ -31,6 +29,5 @@ Article.init({
     }
 
   }
-})
-*/
+}
 module.exports = Article

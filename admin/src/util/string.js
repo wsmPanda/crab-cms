@@ -16,7 +16,6 @@ export default {
   // 编译组合路径 
   composePath(str, info) {
     info = info ? JSON.parse(JSON.stringify(info)) : {}
-    info.app = info.app || window.App
     if (str && info) {
       var arr = str.match(exp.param)
       if (arr && arr.length) {

@@ -1,4 +1,4 @@
-import { link } from './link'
+import { link } from './link/index'
 import $ from 'util'
 const nodesPath = 'service/{app}/nodes?account_code={account_code}'
 export function returnToLogin () {
