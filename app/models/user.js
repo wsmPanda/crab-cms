@@ -26,8 +26,8 @@ var User = {
       type: 'select',
       default: '0',
       rangeset: {
-        0: '正常',
-        1: '封存'
+        1: '正常',
+        0: '封存'
       },
       requred: true
     }

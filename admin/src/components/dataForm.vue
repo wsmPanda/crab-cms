@@ -2,7 +2,7 @@
   <div class="form-control">
     <div class="form-item" v-for="(field,index) in model.fields || []" :key="index">
       <div class="label">{{field.name}}</div>
-      <component :is="fieldComponent(field)" :value="value[field.code]" :data="value" @input="input(field.code,$event)" class="control" ></component>
+      <component :is="fieldComponent(field)" :value="value[field.code]" :model="field" :data="value" @input="input(field.code,$event)" class="control" ></component>
     </div>
   </div>
 </template>
@@ -11,7 +11,7 @@
 /**
    * form组件，通过input时间和v-model绑定来同步数据
    */
-import FormControl from "./formControl";
+import FormControl from "./fields";
 export default {
   props: {
     value: {},

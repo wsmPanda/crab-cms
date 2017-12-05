@@ -1,10 +1,20 @@
  {{#>layout}}
-<h3>ARTICLE LIST</h3>
-<ul class="list-article">
-    {{#each data}}
-    <li>
-        <a href="/article/{{id}}">[blog] {{title}}</a>
-    </li>
+<div class="page-header">
+    <h1>BLOG
+        <small>文章列表</small>
+    </h1>
+</div>
+<div class="list-article">
+    {{#each data.data}}
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <a href="/article/detail/{{id}}">{{title}}</a>
+            <div class="pull-right text-time">{{format_time create_time}}</div>
+            <div>
+                <small>{{brief}}</small>
+            </div>
+        </div>
+    </div>
     {{/each}}
-</ul>
-{{/layout}}
+</div>
+{{>pagnation data path="/article/${page}"}} {{/layout}}

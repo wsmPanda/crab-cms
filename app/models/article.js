@@ -7,10 +7,15 @@ var Article = {
       type: 'code',
       requred: true
     },
-    createTime: {
+    create_time: {
       name: '创建时间',
-      type: 'code',
+      type: 'datetime',
+      default: '@now',
       requred: true
+    },
+    brief: {
+      name: '简述',
+      type: 'code'
     },
     content: {
       name: '内容',
@@ -19,13 +24,20 @@ var Article = {
     },
     state: {
       name: '状态',
-      type: 'select',
+      type: 'state',
       default: '0',
       rangeset: {
         0: '草稿',
-        1: '已发布'
+        1: '发布'
       },
       requred: true
+    },
+    author: {
+      name: '作者',
+      type: 'ref',
+      rangeset: {
+        code: 'model'
+      }
     }
 
   }

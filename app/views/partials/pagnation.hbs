@@ -1,0 +1,22 @@
+<nav>
+    <ul class="pagination pagination-sm">
+        <li class="disabled">
+            <a href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+        {{#for pageCount}}
+        <li class="{{#equal i ../pageOn}}active{{/equal}}">
+            <a href="{{paramPath ../path page=i}}">
+                {{i}}
+            </a>
+        </li>
+        {{/for}}
+        <li>
+            <a href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+        <span>共条 <span class="text-main">{{totalCount}}</span> 数据 </span>
+    </ul>
+</nav>

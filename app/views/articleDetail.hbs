@@ -1,11 +1,16 @@
-
-{{#>layout}}
-{{#with data}}
-<h3>
-    {{title}}
-</h3>
-<p>{{{content}}}</p>
-{{/with}}
+ {{#>layout}}
+<div class="detial-wrapper">
+    {{#with data}}
+    <div class="page-header">
+        <h1>
+            {{title}}
+        </h1>
+        <div class="text-time">创建日期:{{format_time create_time}}</div>
+    </div>
+    <small>{{brief}}</small>
+    <p>{{{content}}}</p>
+    {{/with}}
+</div>
 <hr>
-<a href="/article">&lt;&lt;back</a>
+<a href="/article">&lt;&lt; 返回</a>
 {{/layout}}

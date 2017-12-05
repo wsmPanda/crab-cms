@@ -1,7 +1,64 @@
 body {
-    padding-top: 70px;
+    padding-top: 30px;
 }
 
-.list-article li {
-    padding: 8px 0;
+.list-article .panel-body {
+    padding: 8px 16px;
+}
+
+.navbar-brand {
+    padding-top: 6px;
+    font-weight: bold;
+}
+
+.navbar-brand .icon {
+    font-size: 32px;
+}
+
+.pagination>span {
+    padding: 8px 8px;
+    display: inline-block;
+    font-size: 12px;
+}
+
+.text-main {
+    color: #2b7ab9;
+}
+
+.icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
+
+.list-article .panel {
+    margin-bottom: 8px;
+    border: none;
+    box-shadow: 0 1px 0px rgba(0, 0, 0, .1);
+}
+
+.list-article a {
+    font-size: 16px;
+}
+
+.text-time {
+    font-size: 12px;
+}
+
+.list-article .text-time {
+    color: #888;
+}
+
+small {
+    color: #77778b;
+}
+
+.detial-wrapper {
+    margin-top: 50px;
+}
+
+.footer {
+    padding: 16px;
 }

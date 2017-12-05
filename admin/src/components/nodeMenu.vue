@@ -11,7 +11,7 @@
         <Icon type="document-text"></Icon>
         文章管理 
         </MenuItem>
-        <MenuItem name="0">
+        <MenuItem name="comment/list">
         <Icon type="chatbubbles"></Icon>
         评论管理
         </MenuItem>
