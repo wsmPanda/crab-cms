@@ -1,8 +1,9 @@
 <template>
   <div>
-      <Editor :value="value" @input="input"></Editor>
+      <Input :value="value" @input="input" type="textarea" :rows="4"></Input>
   </div>
 </template>
+
 
 <script>
 import { VueEditor } from "vue2-editor";

@@ -1,0 +1,38 @@
+var Article = {
+  code: 'attachment',
+  name: '附件',
+  fields: {
+    name: {
+      name: '文件名',
+      type: 'code',
+      requred: true
+    },
+    create_time: {
+      name: '创建时间',
+      type: 'datetime',
+      default: '@now',
+      requred: true
+    },
+    path: {
+      name: '文件',
+      type: 'file'
+    },
+    type: {
+      name: '文件类型',
+      type: 'code'
+    },
+    size: {
+      name: '文件大小',
+      type: 'integer',
+      default: 0
+    },
+    author: {
+      name: '作者',
+      type: 'ref',
+      rangeset: {
+        code: 'model'
+      }
+    }
+  }
+}
+module.exports = Article

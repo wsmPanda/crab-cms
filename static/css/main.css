@@ -2,8 +2,41 @@ body {
     padding-top: 30px;
 }
 
+.content.container {
+    padding-top: 30px;
+}
+
+.carousel-index {
+    height: 400px;
+    background: #f8f8f8;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.carousel-inner>.item>a>img,
+.carousel-inner>.item>img {
+    width: 100%;
+}
+
+.carousel-indicators li {
+    border: 1px solid #ea6d51
+}
+
+.carousel-indicators .active {
+    background-color: #ea6d51;
+}
+
+.carousel-control.right,
+.carousel-control.left {
+    background-image: none;
+}
+
 .list-article .panel-body {
     padding: 8px 16px;
+}
+
+.page-header {
+    margin: 0 0 20px;
 }
 
 .navbar-brand {
@@ -61,4 +94,30 @@ small {
 
 .footer {
     padding: 16px;
+}
+
+.comment-box {}
+
+.comment-box .item {
+    background: #f7f7f7;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+}
+
+.comment-box .content {
+    padding: 4px;
+}
+
+.comment-box nav {
+    margin-top: -20px;
+}
+
+.comment-box h4 {
+    font-size: 16px;
+}
+
+.form-comment {
+    width: 480px;
+    padding-bottom: 30px;
 }

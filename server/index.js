@@ -9,9 +9,12 @@ const koaBody = require('koa-body')
 const session = require('koa-session')
 
 const koaStatic = require('koa-static')
-app.keys = ['crabfnvsduihf84390qythuiasfg893qo4h80hrfesa'];
+app.keys = ['crabfnvsduihf84390qythuiasfg893qo4h80hrfesa']
+
 // 加载表态文件
-app.use(session({}, app))
+app.use(session({
+  maxAge: 36000000
+}, app))
 app.use(logger())
 // 引用后端渲染器（只作用于显示前台界面的使用，后台采用spa模式）
 app.use(render)

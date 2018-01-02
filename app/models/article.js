@@ -1,6 +1,16 @@
 var Article = {
   code: 'article',
   name: '文章',
+  relate: [{
+    code: 'comment',
+    name: '文章评论',
+    type: 'sub',
+    key: 'article_id'
+  }, {
+    code: 'tag',
+    name: '文章标签',
+    type: 'bridge'
+  }],
   fields: {
     title: {
       name: '标题',
@@ -19,7 +29,7 @@ var Article = {
     },
     content: {
       name: '内容',
-      type: 'text',
+      type: 'html',
       requred: true
     },
     state: {

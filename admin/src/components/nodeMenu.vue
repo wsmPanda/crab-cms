@@ -6,10 +6,22 @@
       </svg>ADMIN 
     </div>
     <Menu theme="light" :active-name="activeName" width="200" @on-select="nodeSelect">
+      <MenuItem name="index">
+        <Icon type="monitor"></Icon>
+        系统管理 
+      </MenuItem>
       <MenuGroup title="内容管理">
+        <MenuItem name="page/list">
+        <Icon type="navicon-round"></Icon>
+        导航管理 
+        </MenuItem>
         <MenuItem name="article/list">
         <Icon type="document-text"></Icon>
         文章管理 
+        </MenuItem>
+        <MenuItem name="attachment/list">
+        <Icon type="folder"></Icon>
+        附件管理
         </MenuItem>
         <MenuItem name="comment/list">
         <Icon type="chatbubbles"></Icon>

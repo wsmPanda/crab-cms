@@ -1,12 +1,12 @@
 export default {
-  watch: {
-    $route() {
-      this.code = this.$route.params.code
-    }
-  },
   data() {
     return {
       code: null
+    }
+  },
+  watch: {
+    $route() {
+      this.code = this.$route.params.code
     }
   },
   created() {

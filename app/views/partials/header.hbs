@@ -2,10 +2,33 @@
   <div class="container-fluid container">
     <div class="navbar-header">
       <a class="navbar-brand" href="#">
-        CRAB<svg class="icon" aria-hidden="true">
+        CRAB
+        <svg class="icon" aria-hidden="true">
           <use xlink:href="#icon-crab"></use>
         </svg>CMS
       </a>
     </div>
+    <ul class="nav navbar-nav">
+      {{#each section.pages}}
+        {{#if children}}
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">产品
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              {{#each children}}
+              <li class="{{#equal ../../section.active code}}active{{/equal}}">
+                <a href="/{{code}}">{{title}}</a>
+              </li>
+              {{/each}}
+            </ul>
+          </li>
+        {{else}}
+          <li role="presentation" class="{{#equal ../section.active code}}active{{/equal}}">
+            <a href="/{{code}}">{{title}}</a>
+          </li>  
+        {{/if}}
+      {{/each}}
+    </ul>
   </div>
 </nav>

@@ -7,6 +7,12 @@ var Comment = {
       type: 'text',
       requred: true
     },
+    create_time: {
+      name: '创建时间',
+      type: 'datetime',
+      default: '@now',
+      requred: true
+    },
     article_id: {
       name: '文章',
       type: 'ref',

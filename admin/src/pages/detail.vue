@@ -1,7 +1,16 @@
 <template>
   <div class="page-detail">
       <h3 v-if="model">{{model.name}}详情</h3>
+      <hr>
       <DataForm v-if="model" :value="data" @input="formInput" :model="model"></DataForm>
+      <div v-if="model && model.relate && id" class="relate-box">
+        <h4># 关联数据</h4>
+        <hr>
+        <div v-for="(item,index) in model.relate" :key="index" class="relate-item" v-if="item.type==='sub'">
+          <label>{{item.name}}</label>
+          <DataTable :modelCode="item.code" :filter="{[item.key]:id}"></DataTable>
+        </div>
+      </div>
       <div class="bottom-fixed">
         <Button @click="pageBack">返回</Button>
         <Button @click="resetData">重置</Button>
@@ -14,6 +23,8 @@
 import $ from "util";
 import base from "./node";
 import DataForm from "@/components/dataForm";
+import DataTable from "@/pages/subList";
+
 export default {
   extends: base,
   props: {},
@@ -40,6 +51,8 @@ export default {
       this.initData = {};
       if (this.id) {
         this.fetchData();
+      } else {
+        this.$set(this, "data", {});
       }
     },
     fetchModel() {
@@ -59,12 +72,17 @@ export default {
       this.$set(this.data, code, value);
     },
     pageBack() {
-      this.$router.push(`/page/${this.code}/list`);
+      this.$router.go(-1);
+      //this.$router.push(`/page/${this.code}/list`);
     },
     pullData() {
-      $.linkPath("save", this.data, {
-        param: { code: this.code }
-      }).then(() => {
+      $.linkPath(
+        "save",
+        { ...this.$route.query, ...this.data },
+        {
+          param: { code: this.code }
+        }
+      ).then(() => {
         this.$Message.success("数据保存成功");
         this.pageBack();
       });
@@ -80,11 +98,33 @@ export default {
     this.load();
   },
   components: {
-    DataForm
+    DataForm,
+    DataTable
   }
 };
 </script>
 
-<style>
-
+<style lang="less">
+.page-detail {
+  > h3 {
+    font-size: 18px;
+    padding-top: 16px;
+  }
+}
+.relate-box {
+  padding: 16px 0;
+  > h4 {
+    padding-top: 32px;
+    font-size: 18px;
+  }
+}
+.relate-item {
+  padding: 0 8px;
+  > label {
+    margin: 16px 0 8px;
+    font-size: 16px;
+    display: block;
+    font-weight: bold;
+  }
+}
 </style>

@@ -1,0 +1,37 @@
+<div>
+    <hr/>
+    <h4>
+        <i class="glyphicon glyphicon-comment"></i> 用户评论</h4>
+    {{#each data}}
+    <div class="item" data-id="{{id}}">
+        <div class="text-main">{{author}}
+            <div class="pull-right">
+                <small>{{create_time}}</small>
+            </div>
+        </div>
+        <div class="content">{{content}}</div>
+    </div>{{/each}} {{#if data.length}}
+    <nav>
+        <ul class="pagination  pagination-sm">
+            <li class="disabled">
+                <a href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            {{#for pageCount}}
+            <li data-page="{{i}}" class="{{#equal i ../pageOn}}active{{/equal}}">
+                <a> {{i}}
+                </a>
+            </li>
+            {{/for}}
+            <li>
+                <a href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+            <span>共条
+                <span class="text-main">{{totalCount}}</span> 评论 </span>
+        </ul>
+    </nav>
+    {{/if}}
+</div>

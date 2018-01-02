@@ -8,7 +8,8 @@
 export default {
   props: {
     value: {},
-    model: {}
+    model: {},
+    data: {}
   },
   methods: {
     input(value) {

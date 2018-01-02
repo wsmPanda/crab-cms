@@ -1,12 +1,23 @@
 <template>
   <div>
-      DASH
+      INDEX
   </div>
 </template>
 
 <script>
 export default {
-  name: "dash"
+  name: "dash",
+  data() {
+    return {
+      data: {}
+    };
+  },
+  computed: {
+    chartData() {
+      return this.data;
+    }
+  },
+  created() {}
 };
 </script>
 
