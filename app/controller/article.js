@@ -3,14 +3,22 @@ const Article = Crab.model('article')
 const Comment = Crab.model('comment')
 const Time = require('@util/time')
 module.exports = {
-  async list(ctx) {
-    var data = await Article.page({
-      pageOn: ctx.params.page || 1,
-      pageSize: 10
-    })
-    await ctx.render('articleList', {
-      data
-    })
+  list: {
+    template: 'articleList',
+    async data(ctx) {
+      var data = await Article.page({
+        pageOn: ctx.params.page || 1,
+        pageSize: 10
+      })
+      return data
+    }
+  },
+  detail: {
+    template: 'articleDetail',
+    async data(ctx) {
+      var data = await Article.find(ctx.params.id)
+      return data
+    }
   },
   async comments(ctx) {
     var data = await Comment.page({
@@ -30,11 +38,5 @@ module.exports = {
     ctx.body = {
       status: 1
     }
-  },
-  async detail(ctx) {
-    var data = await Article.find(ctx.params.id)
-    await ctx.render('articleDetail', {
-      data
-    })
   }
 }

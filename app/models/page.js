@@ -1,6 +1,6 @@
 var Article = {
   code: 'page',
-  name: '导航页面',
+  name: '页面',
   fields: {
     title: {
       name: '标题',
@@ -27,6 +27,11 @@ var Article = {
         1: '发布'
       },
       requred: true
+    },
+    json_data: {
+      name: '额外数据',
+      type: 'json',
+      requred: false
     },
     memo: {
       name: '备注',

@@ -4,6 +4,9 @@ import html from './html'
 import datetime from './datetime'
 import state from './state'
 import integer from './integer'
+import file from './file'
+import memo from './memo'
+
 var FormConrol = {
   controls: {}
 }
@@ -12,10 +15,13 @@ var controls = {
   text,
   datetime,
   state,
+  file,
+  memo,
   code,
   integer,
   html,
-ref: integer}
+  ref: integer
+}
 for (let i in controls) {
   FormConrol.controls[`field_${i}`] = controls[i]
 }
