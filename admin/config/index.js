@@ -6,12 +6,16 @@ const path = require('path')
 
 module.exports = {
   dev: {
-
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
       '/admin/service': {
+        target: 'http://localhost:3000',
+        pathRewrite: {
+        }
+      },
+      '/upload': {
         target: 'http://localhost:3000',
         pathRewrite: {
         }

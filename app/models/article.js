@@ -46,7 +46,7 @@ var Article = {
       name: '作者',
       type: 'ref',
       rangeset: {
-        code: 'model'
+        code: 'user'
       }
     }
 

@@ -2,7 +2,7 @@
   <div class="form-control">
     <div class="form-item" v-for="(field,index) in model.fields || []" :key="index">
       <div class="label">{{field.name}}</div>
-      <component :is="fieldComponent(field)" :value="value[field.code]" :model="field" :data="value" @input="input(field.code,$event)" class="control" ></component>
+      <component :is="fieldComponent(field)" :value="value[field.code]" :model="field" :data="value" @input="input(field.code,$event)" @inputField="input($event.code,$event.value)" class="control" ></component>
     </div>
   </div>
 </template>

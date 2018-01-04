@@ -50,7 +50,9 @@ export default {
     }
   },
   data() {
-    return {};
+    return {
+      checkList: []
+    };
   },
   computed: {
     columns() {
@@ -74,6 +76,9 @@ export default {
       } else {
         return value;
       }
+    },
+    rowCheck(index) {
+      this.$set(this.checkList, index, !this.checkList[index]);
     }
   }
 };

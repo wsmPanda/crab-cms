@@ -1,8 +1,10 @@
 <template>
 <div class="list-wrapper" :key="tableCode">
-    <Button @click="actionCall('add')" icon="plus" type="primary">新增</Button>
+    <BackTop></BackTop>
+    <Button @click="actionCall('add')" icon="plus" type="primary">新增</Button> 
+    <Button @click="actionCall('delete')" icon="trash-b" type="error">删除</Button>
     <hr>
-    <DataTable :data="data" :model="model" :fetching="fetching" @actionCall="actionCall"></DataTable>
+    <component :is="listCompoent" :data="data" :model="model" :fetching="fetching" @actionCall="actionCall"></component>
     <div class="page-wrapper bottom-fixed">
        <Page @on-change="pageChange" :total="page.total" :page-size="page.size"  :current="page.on"></Page>
     </div>
@@ -13,6 +15,8 @@
 import $ from "util";
 import base from "./node";
 import DataTable from "@/components/dataTable";
+import ImageList from "@/components/imageList";
+
 export default {
   extends: base,
   data() {
@@ -20,7 +24,7 @@ export default {
       data: [],
       page: {
         on: 1,
-        size: 10,
+        size: 12,
         count: 1,
         tolal: 1
       },
@@ -31,6 +35,13 @@ export default {
     };
   },
   computed: {
+    listCompoent() {
+      if (this.model.type === "img") {
+        return "ImageList";
+      } else {
+        return "DataTable";
+      }
+    },
     columns() {
       var cols = (this.model && this.model.fields) || [];
       return cols.filter(field => {
@@ -43,7 +54,7 @@ export default {
   },
   watch: {
     code() {
-      this.$set(this,'data',[])
+      this.$set(this, "data", []);
       this.load();
     }
   },
@@ -54,7 +65,10 @@ export default {
       });
     },
     fetchPostData(data) {
-      return data;
+      return {
+        pageSize: this.page.size,
+        ...data
+      };
     },
     fetchData(postData = {}) {
       this.fetching = true;
@@ -130,7 +144,8 @@ export default {
     this.load();
   },
   components: {
-    DataTable
+    DataTable,
+    ImageList
   }
 };
 </script>

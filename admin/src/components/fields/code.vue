@@ -13,7 +13,12 @@ export default {
   },
   methods: {
     input(value) {
+      if (value === this.value) return;
       this.$emit("input", value);
+    },
+    inputField(code, value) {
+      if (value === this.data[code]) return;
+      this.$emit("inputField", { code, value });
     }
   }
 };

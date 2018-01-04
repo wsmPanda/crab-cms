@@ -1,6 +1,7 @@
 var Article = {
   code: 'page',
   name: '页面',
+  type: 'tree',
   fields: {
     title: {
       name: '标题',
@@ -42,7 +43,8 @@ var Article = {
       name: '上级页面',
       type: 'ref',
       rangeset: {
-        code: 'user'
+        code: 'page',
+        title: 'title'
       }
     },
     author: {

@@ -1,6 +1,7 @@
 var Article = {
   code: 'attachment',
   name: '附件',
+  type: 'img',
   fields: {
     name: {
       name: '文件名',
@@ -15,7 +16,12 @@ var Article = {
     },
     path: {
       name: '文件',
-      type: 'file'
+      type: 'file',
+      mapping: {
+        name: 'name',
+        size: 'size',
+        type: 'type'
+      }
     },
     type: {
       name: '文件类型',
