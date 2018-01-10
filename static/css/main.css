@@ -89,7 +89,7 @@ small {
 }
 
 .detial-wrapper {
-    margin-top: 50px;
+    margin-top: -10px;
 }
 
 .footer {
@@ -120,4 +120,13 @@ small {
 .form-comment {
     width: 480px;
     padding-bottom: 30px;
+}
+
+.jiathis_style .jiathis_counter.jiathis_bubble_style {
+    min-width: 36px;
+}
+
+.share-box {
+    position: relative;
+    bottom: 4px;
 }

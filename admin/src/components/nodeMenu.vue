@@ -1,23 +1,24 @@
 <template>
   <div>
     <div class="menu-logo">
-      CRAB<svg class="icon" aria-hidden="true">
+      CRAB
+      <svg class="icon" aria-hidden="true">
         <use xlink:href="#icon-crab"></use>
-      </svg>ADMIN 
+      </svg>ADMIN
     </div>
     <Menu theme="light" :active-name="activeName" width="200" @on-select="nodeSelect">
       <MenuItem name="index">
-        <Icon type="monitor"></Icon>
-        系统管理 
+      <Icon type="monitor"></Icon>
+      系统管理
       </MenuItem>
       <MenuGroup title="内容管理">
         <MenuItem name="page/list">
         <Icon type="navicon-round"></Icon>
-        导航管理 
+        导航管理
         </MenuItem>
         <MenuItem name="article/list">
         <Icon type="document-text"></Icon>
-        文章管理 
+        文章管理
         </MenuItem>
         <MenuItem name="attachment/list">
         <Icon type="folder"></Icon>
@@ -26,6 +27,10 @@
         <MenuItem name="comment/list">
         <Icon type="chatbubbles"></Icon>
         评论管理
+        </MenuItem>
+        <MenuItem name="tag/list">
+        <Icon type="ios-pricetag"></Icon>
+        标签管理
         </MenuItem>
       </MenuGroup>
       <MenuGroup title="用户管理">
@@ -72,6 +77,7 @@ export default {
     top: 2px;
   }
 }
+
 .ivu-menu {
   flex: 1;
   .ivu-menu-light.ivu-menu-vertical .ivu-menu-item {

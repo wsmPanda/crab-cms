@@ -2,10 +2,26 @@
 <div class="detial-wrapper">
     {{#with data}}
     <div class="page-header">
-        <h1>
+        <h2>
             {{title}}
-        </h1>
-        <div class="text-time">创建日期:{{format_time create_time}}</div>
+        </h2>
+        <div class="text-time">
+            创建日期:{{format_time create_time}}
+            <div class="share-box pull-right">
+                <!-- JiaThis Button BEGIN -->
+                <div class="jiathis_style">
+                    <a class="jiathis_button_qzone"></a>
+                    <a class="jiathis_button_tsina"></a>
+                    <a class="jiathis_button_tqq"></a>
+                    <a class="jiathis_button_weixin"></a>
+                    <a class="jiathis_button_renren"></a>
+                    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+                    <a class="jiathis_counter_style"></a>
+                </div>
+                <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+                <!-- JiaThis Button END -->
+            </div>
+        </div>
     </div>
     <small>{{brief}}</small>
     <p>{{{content}}}</p>
@@ -24,7 +40,6 @@
         <button type="submit" class="btn btn-default btn-comment">提交评论</button>
     </div>
 </div>
-
 <hr>
 <a href="/article">&lt;&lt; 返回</a>
 <script src="/js/article.js"></script> {{/layout}}

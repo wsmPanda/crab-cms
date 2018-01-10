@@ -53,8 +53,19 @@ var Article = {
       rangeset: {
         code: 'user'
       }
+    },
+    custom_data: {
+      name: '内容数据',
+      locate: 'tab',
+      type: 'json',
+      list_pos: 0
+    },
+    custom_scheme: {
+      name: '内容结构',
+      locate: 'tab_adv',
+      type: 'json_scheme',
+      list_pos: 0
     }
-
   }
 }
 module.exports = Article

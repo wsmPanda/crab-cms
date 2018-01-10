@@ -1,16 +1,19 @@
 var Article = {
   code: 'article',
-  name: '文章',
+  name: '新闻文章',
+  layout: 'panel',
   relate: [{
     code: 'comment',
     name: '文章评论',
     type: 'sub',
     key: 'article_id'
-  }, {
-    code: 'tag',
-    name: '文章标签',
-    type: 'bridge'
   }],
+  groups: {
+    page_setting: {
+      name: '页面设置',
+      locate: 'right'
+    }
+  },
   fields: {
     title: {
       name: '标题',
@@ -41,6 +44,47 @@ var Article = {
         1: '发布'
       },
       requred: true
+    },
+    href: {
+      name: '自定义链接',
+      type: 'url',
+      group: 'page_setting',
+      list_pos: 0
+    },
+    tags: {
+      name: '标签',
+      type: 'refs',
+      rangeset: {
+        code: 'tag',
+        name_record: true
+      },
+      editor: 'modal'
+    },
+    tag_title: {
+      name: '页面标题',
+      type: 'code',
+      group: 'page_setting',
+      tip: '默认为文章标题',
+      list_pos: 0
+    },
+    tag_description: {
+      name: '页面描述',
+      type: 'code',
+      group: 'page_setting',
+      list_pos: 0
+    },
+    tag_key: {
+      name: '关键字',
+      tip: '使用;分割关键字',
+      type: 'code',
+      group: 'page_setting',
+      list_pos: 0
+    },
+    enable_share: {
+      name: '允许分享',
+      type: 'bool',
+      default: true,
+      list_pos: 0
     },
     author: {
       name: '作者',

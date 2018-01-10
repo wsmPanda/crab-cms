@@ -58,7 +58,7 @@ export default {
     columns() {
       var cols = (this.model && this.model.fields) || [];
       return cols.filter(field => {
-        return field.type !== "html";
+        return field.type !== "html" && field.list_pos !== 0;
       });
     }
   },

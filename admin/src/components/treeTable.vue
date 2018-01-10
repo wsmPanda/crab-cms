@@ -45,6 +45,7 @@ export default {
   computed: {
     treeData() {
       var data = {};
+      for(let i in this.)
     }
   }
 };

@@ -17,6 +17,15 @@ module.exports = {
     template: 'articleDetail',
     async data(ctx) {
       var data = await Article.find(ctx.params.id)
+      if (data.tag_title) {
+        ctx.section.title = data.tag_title
+      }
+      if (data.tag_key) {
+        ctx.section.key = data.tag_key
+      }
+      if (data.tag_description) {
+        ctx.section.description = data.tag_description
+      }
       return data
     }
   },

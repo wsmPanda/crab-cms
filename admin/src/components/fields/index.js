@@ -7,6 +7,9 @@ import integer from './integer'
 import file from './file'
 import memo from './memo'
 import ref from './ref'
+import refs from './refs'
+import bool from './bool'
+
 var FormConrol = {
   controls: {}
 }
@@ -33,6 +36,8 @@ var controls = {
   code,
   integer,
   html,
+  refs,
+  bool,
 ref}
 for (let i in controls) {
   FormConrol.controls[`field_${i}`] = controls[i]

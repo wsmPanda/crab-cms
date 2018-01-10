@@ -2,7 +2,11 @@ const Crab = require('@crab')
 const Page = Crab.model('page')
 
 module.exports = async(ctx, next) => {
-  var data = {
+  //通过section对象改变页面tdk
+  ctx.section = {
+    title: 'CRAB',
+    key: 'cms',
+    description: 'crab cms',
     pages: []
   }
   var arr = ctx.path.split('/')
@@ -17,15 +21,14 @@ module.exports = async(ctx, next) => {
       pagesMap[page.parent].children = pagesMap[page.parent].children || []
       pagesMap[page.parent].children.push(page)
     } else {
-      data.pages.push(page)
+      ctx.section.pages.push(page)
     }
   }
-  data._pages = pages
-  ctx.section = data
+  ctx.section._pages = pages
   if (active) {
     for (let page of pages) {
       if (page.code === active) {
-        data.active = active
+        ctx.section.active = active
         break
       }
     }

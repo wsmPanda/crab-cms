@@ -1,6 +1,6 @@
 <template>
   <div class="form-control">
-    <div class="form-item" v-for="(field,index) in model.fields || []" :key="index">
+    <div class="form-item" v-for="(field,index) in formFields || []" :key="index">
       <div class="label">{{field.name}}</div>
       <component :is="fieldComponent(field)" :value="value[field.code]" :model="field" :data="value" @input="input(field.code,$event)" @inputField="input($event.code,$event.value)" class="control" ></component>
     </div>
@@ -16,6 +16,17 @@ export default {
   props: {
     value: {},
     model: {}
+  },
+  computed: {
+    formFields() {
+      return this.model.fields
+        .filter(a => {
+          return a.card_pos !== 0;
+        })
+        .sort((a, b) => {
+          return (a.card_pos || 0) - b.card_pos;
+        });
+    }
   },
   methods: {
     input(code, value) {
