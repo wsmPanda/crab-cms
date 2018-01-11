@@ -29,6 +29,7 @@ module.exports = async(ctx, next) => {
     for (let page of pages) {
       if (page.code === active) {
         ctx.section.active = active
+        ctx.section.page = page
         if (page.custom) {
           try {
             ctx.section.custom = JSON.parse(page.custom)

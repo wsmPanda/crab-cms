@@ -19,6 +19,10 @@
         <Icon type="document-text"></Icon>
         文章管理
         </MenuItem>
+        <MenuItem name="recruit/list">
+        <Icon type="document-text"></Icon>
+        招聘管理
+        </MenuItem>
         <MenuItem name="comment/list">
         <Icon type="chatbubbles"></Icon>
         评论管理

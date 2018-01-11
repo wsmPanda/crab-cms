@@ -11,7 +11,7 @@ const session = require('koa-session')
 
 const koaStatic = require('koa-static')
 app.keys = ['crabfnvsduihf84390qythuiasfg893qo4h80hrfesa']
- 
+
 // 加载表态文件
 app.use(session({
   maxAge: 36000000
@@ -23,6 +23,22 @@ app.use(render)
 app.use(koaBody())
 app.use(lib_routes)
 app.use(app_routes)
+app.use(async(ctx, next) => {
+  try {
+    await next();
+    if (ctx.status === 404) {
+      ctx.throw(404);
+    }
+  } catch (err) {
+    const status = err.status || 500;
+    ctx.status = status;
+    if (status === 404) {
+      await ctx.render("404");
+    } else if (status === 500) {
+      await ctx.render("500");
+    }
+  }
+})
 
 // 设置静态文件目录 
 app.use(koaStatic(__dirname + '/../static'))

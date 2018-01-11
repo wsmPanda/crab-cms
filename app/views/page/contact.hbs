@@ -1,0 +1,18 @@
+{{#>layout}}
+<div>
+    联系我们
+    <table>
+        {{#each section.content.fields}}
+        <tr>
+            <td>
+                {{name}}
+            </td>
+            <td>
+                <input name={{name}}>
+            </td>
+        </tr>
+        {{/each}}
+    </table>
+    <button>提交</button>
+</div>
+{{/layout}}

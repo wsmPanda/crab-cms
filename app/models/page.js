@@ -65,6 +65,26 @@ var Article = {
         title: 'title'
       }
     },
+    serial: {
+      name: '顺序',
+      type: 'integer',
+      group: 'relate'
+    },
+    relate_type: {
+      name: '关联内容',
+      type: 'state',
+      group: 'relate',
+      rangeset: {
+        form_struct: '表单',
+        article: '文章',
+        recruit: '招聘'
+      }
+    },
+    relate_code: {
+      name: '关联编码',
+      type: 'code',
+      group: 'relate'
+    },
     author: {
       name: '作者',
       type: 'ref',

@@ -57,6 +57,12 @@ var Article = {
       group: 'page_setting',
       list_pos: 0
     },
+    view_count: {
+      name: '点击量',
+      type: 'integer',
+      default: 0,
+      card_pos: 0
+    },
     tags: {
       name: '标签',
       type: 'refs',
