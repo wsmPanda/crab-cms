@@ -1,8 +1,12 @@
 @import '~iview/src/styles/index.less';
 @import './util.less';
 hr {
-    margin: 8px 0;
+    margin: 8px 0 0;
     border: 1px solid #dddee1;
+}
+
+.ivu-modal-close {
+    z-index: 2;
 }
 
 button.ivu-btn {
@@ -10,8 +14,67 @@ button.ivu-btn {
 }
 
 .icon {
-    width: 1em; height: 1em;
+    width: 1em;
+    height: 1em;
     vertical-align: -0.15em;
     fill: currentColor;
     overflow: hidden;
- }
+}
+
+.table-wrapper {
+    position: relative;
+  }
+  .table-spin {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.2);
+    top: 32px;
+    bottom: 0;
+  }
+  .table-data {
+    width: 100%;
+    max-width: 100%;
+    background-color: transparent;
+    border-collapse: collapse;
+    th,
+    td {
+      text-align: left;
+      padding: 6px 16px;
+      border: none;
+    }
+    th {
+      font-weight: bold;
+      vertical-align: bottom;
+      border-bottom: 2px solid #e9ecef;
+      white-space: nowrap;
+    }
+    td {
+    }
+    .row-check {
+      width: 32px;
+    }
+    .row-add {
+      text-align: center;
+      border-bottom: 1px solid #e9ecef;
+      border-top: 1px solid #e9ecef;
+      .ivu-btn {
+        width: 100%;
+      }
+      cursor: pointer;
+    }
+    tr {
+      background: #fff;
+    }
+    tbody tr {
+      &:nth-of-type(odd) {
+        background-color: rgba(0, 0, 0, 0.02);
+      }
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.04);
+      }
+    }
+  }

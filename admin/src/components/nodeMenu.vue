@@ -1,8 +1,7 @@
 <template>
   <div>
     <div class="menu-logo">
-      CRAB
-      <svg class="icon" aria-hidden="true">
+      CRAB<svg class="icon" aria-hidden="true">
         <use xlink:href="#icon-crab"></use>
       </svg>ADMIN
     </div>
@@ -20,10 +19,6 @@
         <Icon type="document-text"></Icon>
         文章管理
         </MenuItem>
-        <MenuItem name="attachment/list">
-        <Icon type="folder"></Icon>
-        附件管理
-        </MenuItem>
         <MenuItem name="comment/list">
         <Icon type="chatbubbles"></Icon>
         评论管理
@@ -31,6 +26,30 @@
         <MenuItem name="tag/list">
         <Icon type="ios-pricetag"></Icon>
         标签管理
+        </MenuItem>
+      </MenuGroup>
+      <MenuGroup title="文件管理">
+        <MenuItem name="attachment/list">
+        <Icon type="folder"></Icon>
+        附件管理
+        </MenuItem>
+        <MenuItem name="attachment_tag/list">
+        <Icon type="ios-pricetag"></Icon>
+        附件标签
+        </MenuItem>
+      </MenuGroup>
+      <MenuGroup title="数据管理">
+        <MenuItem name="form_struct/list">
+        <Icon type="gear-a"></Icon>
+        表单定义
+        </MenuItem>
+        <MenuItem name="form_data/list">
+        <Icon type="gear-a"></Icon>
+        表单数据
+        </MenuItem>
+        <MenuItem name="/">
+        <Icon type="clipboard"></Icon>
+        日志查看*
         </MenuItem>
       </MenuGroup>
       <MenuGroup title="用户管理">
@@ -65,8 +84,8 @@ export default {
 </script>
 <style lang="less">
 .menu-logo {
-  padding: 2px 20px 5px;
-  font-size: 18px;
+  padding: 2px 6px 7px 10px;
+  font-size: 14px;
   font-weight: bold;
   border-bottom: 2px solid #dddee1;
   height: 48px;
@@ -80,6 +99,7 @@ export default {
 
 .ivu-menu {
   flex: 1;
+  overflow: auto;
   .ivu-menu-light.ivu-menu-vertical .ivu-menu-item {
     width: 100%;
     margin: 0;

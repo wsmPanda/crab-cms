@@ -9,6 +9,10 @@ var Article = {
     key: 'article_id'
   }],
   groups: {
+    info: {
+      name: '基本信息',
+      locate: 'right'
+    },
     page_setting: {
       name: '页面设置',
       locate: 'right'
@@ -24,7 +28,8 @@ var Article = {
       name: '创建时间',
       type: 'datetime',
       default: '@now',
-      requred: true
+      requred: true,
+      group: 'info'
     },
     brief: {
       name: '简述',
@@ -43,7 +48,8 @@ var Article = {
         0: '草稿',
         1: '发布'
       },
-      requred: true
+      requred: true,
+      group: 'info'
     },
     href: {
       name: '自定义链接',
@@ -58,7 +64,8 @@ var Article = {
         code: 'tag',
         name_record: true
       },
-      editor: 'modal'
+      editor: 'modal',
+      group: 'info'
     },
     tag_title: {
       name: '页面标题',
@@ -91,7 +98,8 @@ var Article = {
       type: 'ref',
       rangeset: {
         code: 'user'
-      }
+      },
+      group: 'info'
     }
 
   }

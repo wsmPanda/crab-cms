@@ -2,6 +2,26 @@ var Article = {
   code: 'page',
   name: '页面',
   type: 'tree',
+  groups: {
+    relate: {
+      name: '关联内容',
+      locate: 'right'
+    },
+    setting: {
+      name: '页面设置',
+      locate: 'right'
+    },
+    tab_data: {
+      name: '页面数据',
+      locate: 'left',
+      dispaly: 'tab'
+    },
+    tab_struct: {
+      name: '页面数据定义',
+      locate: 'left',
+      dispaly: 'tab'
+    }
+  },
   fields: {
     title: {
       name: '标题',
@@ -17,7 +37,8 @@ var Article = {
       name: '创建时间',
       type: 'datetime',
       default: '@now',
-      requred: true
+      requred: true,
+      group: 'setting'
     },
     state: {
       name: '状态',
@@ -27,12 +48,8 @@ var Article = {
         0: '草稿',
         1: '发布'
       },
-      requred: true
-    },
-    json_data: {
-      name: '额外数据',
-      type: 'json',
-      requred: false
+      requred: true,
+      group: 'setting'
     },
     memo: {
       name: '备注',
@@ -42,6 +59,7 @@ var Article = {
     parent: {
       name: '上级页面',
       type: 'ref',
+      group: 'relate',
       rangeset: {
         code: 'page',
         title: 'title'
@@ -52,18 +70,21 @@ var Article = {
       type: 'ref',
       rangeset: {
         code: 'user'
-      }
+      },
+      group: 'setting'
     },
-    custom_data: {
+    custom: {
       name: '内容数据',
       locate: 'tab',
       type: 'json',
-      list_pos: 0
+      list_pos: 0,
+      group: 'tab_data'
     },
     custom_scheme: {
       name: '内容结构',
       locate: 'tab_adv',
       type: 'json_scheme',
+      group: 'tab_struct',
       list_pos: 0
     }
   }

@@ -9,6 +9,7 @@ import memo from './memo'
 import ref from './ref'
 import refs from './refs'
 import bool from './bool'
+import json from './json'
 
 var FormConrol = {
   controls: {}
@@ -38,7 +39,8 @@ var controls = {
   html,
   refs,
   bool,
-ref}
+  json,
+ref} 
 for (let i in controls) {
   FormConrol.controls[`field_${i}`] = controls[i]
 }

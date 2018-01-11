@@ -3,6 +3,12 @@
       <h3 v-if="model">{{model.name}}详情</h3>
       <hr>
       <DataForm v-if="model" :value="data" @input="formInput" :model="model"></DataForm>
+      <div v-if="model && model.slaves" class="salve-box">
+        <div v-for="(slave,index) in model.slaves" :key="index" class="slave-item"> 
+           <h4># {{slave.name}}</h4>
+           <LocalList :data="data[slave.code]" :model="slave" @dataChange="dataChange"></LocalList>
+        </div>
+      </div>
       <div v-if="model && model.relate && id" class="relate-box">
         <h4># 关联数据</h4>
         <hr>
@@ -14,7 +20,7 @@
       <div class="bottom-fixed">
         <Button @click="pageBack">返回</Button>
         <Button @click="resetData">重置</Button>
-        <Button @click="pullData" type="primary">提交</Button>
+        <Button @click="pushData" type="primary">提交</Button>
       </div>
   </div>
 </template>
@@ -24,6 +30,7 @@ import $ from "util";
 import base from "./node";
 import DataForm from "@/components/dataForm";
 import DataTable from "@/pages/subList";
+import LocalList from "@/components/localList";
 
 export default {
   extends: base,
@@ -73,22 +80,42 @@ export default {
     },
     pageBack() {
       this.$router.go(-1);
-      //this.$router.push(`/page/${this.code}/list`);
     },
-    pullData() {
-      $.linkPath(
-        "save",
-        { ...this.$route.query, ...this.data },
-        {
-          param: { code: this.code }
+    pushData() {
+      var data = { ...this.$route.query, ...this.data };
+      for (let i in this.model.fields) {
+        let field = this.model.fields[i]; 
+        if (field.type === "json") {
+          try {
+            data[field.code] = JSON.stringify(JSON.parse(data[field.code]));
+          } catch (ex) {
+            console.warn(ex);
+          }
         }
-      ).then(() => {
+      }
+      $.linkPath("save", data, {
+        param: { code: this.code }
+      }).then(() => {
         this.$Message.success("数据保存成功");
         this.pageBack();
       });
     },
     resetData() {
       this.$set(this, "data", $.copy(this.initData));
+    },
+    dataChange({ code, index, value }) {
+      if (this.model._slaves[code] && !this.data[code]) {
+        $.set(this.data, code, []);
+      }
+      if (Array.isArray(this.data[code])) {
+        if (this.data[code][index]) {
+          this.$set(this.data[code], index, value);
+        } else {
+          this.data[code].push(value);
+        }
+      } else {
+        this.$set(this.data, code, value);
+      }
     }
   },
   created() {
@@ -99,7 +126,8 @@ export default {
   },
   components: {
     DataForm,
-    DataTable
+    DataTable,
+    LocalList
   }
 };
 </script>
@@ -108,7 +136,13 @@ export default {
 .page-detail {
   > h3 {
     font-size: 18px;
-    padding-top: 16px;
+    padding-top: 8px;
+  }
+}
+.slave-item {
+  h4 {
+    font-size: 14px;
+    margin: 16px 0;
   }
 }
 .relate-box {

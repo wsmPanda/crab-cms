@@ -8,7 +8,7 @@
     {{#each data.data}}
     <div class="panel panel-default">
         <div class="panel-body">
-            <a href="/article/detail/{{id}}">{{title}}</a>
+            <a href="/article/detail/{{or href id}}">{{title}}</a>
             <div class="pull-right text-time">{{format_time create_time}}</div>
             <div>
                 <small>{{brief}}</small>

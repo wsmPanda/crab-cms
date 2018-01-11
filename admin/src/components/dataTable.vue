@@ -51,7 +51,8 @@ export default {
   },
   data() {
     return {
-      checkList: []
+      checkList: [],
+      local: false
     };
   },
   computed: {
@@ -85,52 +86,5 @@ export default {
 </script>
 
 <style lang="less">
-.table-wrapper {
-  position: relative;
-}
-.table-spin {
-  position: absolute;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.2);
-  top: 32px;
-  bottom: 0;
-}
-.table-data {
-  width: 100%;
-  max-width: 100%;
-  background-color: transparent;
-  border-collapse: collapse;
-  th,
-  td {
-    text-align: left;
-    padding: 6px 16px;
-    border: none;
-  }
-  th {
-    font-weight: bold;
-    vertical-align: bottom;
-    border-bottom: 2px solid #e9ecef;
-    white-space: nowrap;
-  }
-  td {
-  }
-  .row-check {
-    width: 32px;
-  }
-  tr {
-    background: #fff;
-  }
-  tbody tr {
-    &:nth-of-type(odd) {
-      background-color: rgba(0, 0, 0, 0.02);
-    }
-    &:hover {
-      background-color: rgba(0, 0, 0, 0.04);
-    }
-  }
-}
+
 </style>

@@ -8,6 +8,16 @@ var Article = {
       type: 'code',
       requred: true
     },
+    tags: {
+      name: '标签',
+      type: 'refs',
+      rangeset: {
+        code: 'attachment_tag',
+        name_record: true
+      },
+      editor: 'modal',
+      group: 'info'
+    },
     create_time: {
       name: '创建时间',
       type: 'datetime',

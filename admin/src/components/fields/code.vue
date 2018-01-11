@@ -11,10 +11,19 @@ export default {
     model: {},
     data: {}
   },
+  data() {
+    return {
+      inputting: false
+    };
+  },
   methods: {
     input(value) {
       if (value === this.value) return;
+      this.inputting = true;
       this.$emit("input", value);
+      this.$nextTick(() => {
+        this.inputting = false;
+      });
     },
     inputField(code, value) {
       if (value === this.data[code]) return;

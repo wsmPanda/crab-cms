@@ -1,5 +1,13 @@
 {{#>layout}}
 <div>
+    <h2>{{section.custom.test}}</h2>
+    <ul>
+    {{#each section.custom.mock_list}}
+        <li>
+            {{name}} {{code}}
+        </li>
+    {{/each}}
+    </ul>
     <div id="carousel-example-generic" class="carousel slide carousel-index" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
