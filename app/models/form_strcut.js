@@ -1,6 +1,13 @@
 var form_struct = {
   code: 'form_struct', // custom_struct
   name: '表单定义',
+  relate: [{
+    code: 'form_data',
+    name: '表单数据',
+    type: 'sub',
+    key: 'struct_id',
+    main_key: 'code'
+  }],
   group: {
     right: {
       locate: 'right',

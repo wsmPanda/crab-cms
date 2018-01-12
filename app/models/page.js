@@ -2,6 +2,12 @@ var Article = {
   code: 'page',
   name: '页面',
   type: 'tree',
+  actions: [{
+    type: 'process',
+    name: '重新发布',
+    icon: 'refresh',
+    path: 'admin/service/staticize/page'
+  }],
   groups: {
     relate: {
       name: '关联内容',

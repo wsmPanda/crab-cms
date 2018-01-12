@@ -1,7 +1,7 @@
 const Koa = require('koa')
 const app = new Koa()
 const config = require('../config/index')
-const render = require('./render')
+const render = require('../lib/render/middleware')
 const logger = require('koa-logger')
 const lib_routes = require('../lib/routes')
 const app_routes = require('../app/routes')
@@ -44,7 +44,7 @@ app.use(async(ctx, next) => {
 app.use(koaStatic(__dirname + '/../static'))
 
 // 报错
-app.on('error', (err, ctx) => {
+app.on('error', async(err, ctx) => {
   console.error('server error')
   console.error(err)
 })

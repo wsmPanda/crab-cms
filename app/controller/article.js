@@ -1,8 +1,10 @@
 const Crab = require('@crab')
 const Article = Crab.model('article')
+const Page = require('./page')
 const Comment = Crab.model('comment')
 const Time = require('@util/time')
-module.exports = {
+const fs = require('fs')
+const controller = {
   list: {
     template: 'articleList',
     async data(ctx) {
@@ -12,6 +14,46 @@ module.exports = {
       })
       return data
     }
+  },
+  async staticize(row) {
+    var section = await Page.data('article')
+    if (row.tag_title) {
+      section.title = row.tag_title
+    }
+    if (row.tag_key) {
+      section.key = row.tag_key
+    }
+    if (row.tag_description) {
+      section.description = row.tag_description
+    }
+    var data = {
+      data: row,
+      section
+    }
+    var html = await Crab.render('articleDetail', data).catch((res) => {
+      return null
+    })
+    if (html) {
+      fs.writeFileSync(`static/pages/article/${row.href || row.id}.html`, html)
+    }
+  },
+  async detailData(id, section = {}) {
+    var data = await Article.find(id)
+    if (!data) {
+      data = await Article.find({
+        href: id
+      })
+    }
+    if (data.tag_title) {
+      section.title = data.tag_title
+    }
+    if (data.tag_key) {
+      section.key = data.tag_key
+    }
+    if (data.tag_description) {
+      section.description = data.tag_description
+    }
+    return data
   },
   detail: {
     template: 'articleDetail',
@@ -54,3 +96,4 @@ module.exports = {
     }
   }
 }
+module.exports = controller

@@ -13,7 +13,7 @@
       <MenuGroup title="内容管理">
         <MenuItem name="page/list">
         <Icon type="navicon-round"></Icon>
-        导航管理
+        导航管理 <Icon type="refresh"></Icon>
         </MenuItem>
         <MenuItem name="article/list">
         <Icon type="document-text"></Icon>
@@ -88,8 +88,8 @@ export default {
 </script>
 <style lang="less">
 .menu-logo {
-  padding: 2px 6px 7px 10px;
-  font-size: 14px;
+  padding: 2px 10px 7px 10px;
+  font-size: 16px;
   font-weight: bold;
   border-bottom: 2px solid #dddee1;
   height: 48px;

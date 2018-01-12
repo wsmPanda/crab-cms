@@ -12,11 +12,15 @@ var form_data = {
     },
     struct_id: {
       name: '表单',
-      type: 'ref'
+      type: 'ref',
+      rangeset: {
+        code: 'form_struct',
+        key: 'code'
+      }
     },
     content: {
       name: '内容',
-      type: 'json_data',
+      type: 'json',
       editable: false
     }
   }

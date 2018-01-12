@@ -9,12 +9,12 @@
            <LocalList :data="data[slave.code]" :model="slave" @dataChange="dataChange"></LocalList>
         </div>
       </div>
-      <div v-if="model && model.relate && id" class="relate-box">
+      <div v-if="model && model.relate && id && data.id" class="relate-box">
         <h4># 关联数据</h4>
         <hr>
         <div v-for="(item,index) in model.relate" :key="index" class="relate-item" v-if="item.type==='sub'">
           <label>{{item.name}}</label>
-          <DataTable :modelCode="item.code" :filter="{[item.key]:id}"></DataTable>
+          <DataTable :modelCode="item.code" :filter="{[item.key]:data[item.main_key||'id']}"></DataTable>
         </div>
       </div>
       <div class="bottom-fixed">
@@ -84,7 +84,7 @@ export default {
     pushData() {
       var data = { ...this.$route.query, ...this.data };
       for (let i in this.model.fields) {
-        let field = this.model.fields[i]; 
+        let field = this.model.fields[i];
         if (field.type === "json") {
           try {
             data[field.code] = JSON.stringify(JSON.parse(data[field.code]));

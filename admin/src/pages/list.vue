@@ -3,6 +3,7 @@
     <BackTop></BackTop>
     <Button @click="actionCall('add')" icon="plus" type="primary">新增</Button> 
     <Button @click="actionCall('delete')" icon="trash-b" type="error">删除</Button>
+    <Button v-for="(action,index) in model.actions" @click="actionCall({code:action.type,data:action})" :icon="action.icon" type="info" :key="index">{{action.name}}</Button>
     <hr>
     <component :is="listCompoent" :data="data" :model="model" :fetching="fetching" @actionCall="actionCall"></component>
     <div class="page-wrapper bottom-fixed">
@@ -118,15 +119,29 @@ export default {
     action_edit(value) {
       this.$router.push(`/page/${this.tableCode}/detail/${value}`);
     },
+    action_process(action) {
+      $.link(action.path, null)
+        .then(() => {
+          this.$Message.success("发布成功");
+          this.fetchData();
+        })
+        .catch(() => {
+          this.$Message.error("请求错误");
+        });
+    },
     action_delete(value) {
       $.linkPath("delete", [value], {
         param: {
           code: this.tableCode
         }
-      }).then(() => {
-        this.$Message.success("数据删除成功");
-        this.fetchData();
-      });
+      })
+        .then(() => {
+          this.$Message.success("数据删除成功");
+          this.fetchData();
+        })
+        .catch(() => {
+          this.$Message.error("请求错误");
+        });
     },
     load() {
       this.fetchModel().then(res => {

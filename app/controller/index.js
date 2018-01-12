@@ -3,7 +3,7 @@ var Controller = importer(__dirname)('./')
 for (let i in Controller) {
   for (let code in Controller[i]) {
     var item = Controller[i][code]
-    if (typeof item !== 'function') {
+    if (item && typeof item !== 'function') {
       if (item.template) {
         Controller[i][code] = pageRender(item)
       } else {

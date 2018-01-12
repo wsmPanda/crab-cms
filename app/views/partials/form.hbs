@@ -1,0 +1,16 @@
+<form action="/submit/{{code}}" method="post">
+    <table>
+        {{#each fields}}
+        <tr>
+            <td>
+                {{name}}
+                {{{has required '<span>*</span>'}}}
+            </td>
+            <td>
+                <input name="{{code}}" {{has required 'required'}}>
+            </td>
+        </tr>
+        {{/each}}
+    </table>
+    <button>提交</button>
+</form>

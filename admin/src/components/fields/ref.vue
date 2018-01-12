@@ -1,7 +1,7 @@
 <template>
   <div @click="selectInput">
     <Select :value="value" @input="input" :clearable="true" filterable transfer :loading="loading" @on-query-change="fetch">
-      <Option v-for="(option, index) in options" :value="option.id" :key="index">{{option.name||option.title}}</Option>
+      <Option v-for="(option, index) in options" :value="option[key]" :key="index">{{option.name||option.title}}</Option>
     </Select>
   </div>
 </template>
@@ -16,6 +16,7 @@ export default {
       optionLoad: false,
       inInput: false,
       loading: false,
+      key: "id",
       options: []
     };
   },
@@ -28,7 +29,8 @@ export default {
   },
   methods: {
     getValueData(v) {
-      this.fetch(null, { id: v });
+      console.log(v);
+      this.fetch(null, { [this.key]: v });
     },
     input(v) {
       this.inInput = true;
@@ -55,6 +57,11 @@ export default {
         .catch(() => {
           this.loading = false;
         });
+    }
+  },
+  created() {
+    if (this.model.rangeset && this.model.rangeset.key) {
+      this.key = this.model.rangeset.key;
     }
   },
   components: {}

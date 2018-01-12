@@ -16,3 +16,4 @@ static/upload
 *.ntvs*
 *.njsproj
 *.sln
+*.log

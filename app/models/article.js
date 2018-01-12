@@ -8,6 +8,12 @@ var Article = {
     type: 'sub',
     key: 'article_id'
   }],
+  actions: [{
+    type: 'process',
+    name: '重新发布',
+    icon: 'refresh',
+    path: 'admin/service/staticize/article'
+  }],
   groups: {
     info: {
       name: '基本信息',
